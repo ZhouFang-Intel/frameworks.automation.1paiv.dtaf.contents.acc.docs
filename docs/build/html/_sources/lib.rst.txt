@@ -1,0 +1,70 @@
+lib package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   lib.accelerator_inband
+   lib.accelerator_ofband
+
+Submodules
+----------
+
+lib.accelerator module
+----------------------
+
+.. automodule:: lib.accelerator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+lib.esxi module
+---------------
+
+.. automodule:: lib.esxi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+lib.rich\_virtual\_virsh module
+-------------------------------
+
+.. automodule:: lib.rich_virtual_virsh
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+lib.tools\_definitions module
+-----------------------------
+
+.. automodule:: lib.tools_definitions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+lib.utilities module
+--------------------
+
+.. automodule:: lib.utilities
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+lib.yaml\_parser module
+-----------------------
+
+.. automodule:: lib.yaml_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: lib
+   :members:
+   :undoc-members:
+   :show-inheritance:
