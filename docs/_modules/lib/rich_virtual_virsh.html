@@ -1,0 +1,1130 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+        <title>lib.rich_virtual_virsh - ACC-DTAF-APIs documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">ACC-DTAF-APIs  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ACC-DTAF-APIs  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../lib.html">lib package</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of lib package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">lib</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lib.html">lib package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of lib package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for lib.rich_virtual_virsh</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<span class="kn">from</span> <span class="nn">src.accelerator.lib.accelerator</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># from src.virtualization.lib.const import sut_tool</span>
+
+
+<div class="viewcode-block" id="KVM"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM">[docs]</a><span class="k">class</span> <span class="nc">KVM</span><span class="p">:</span>
+    <span class="n">CALLER_COMMAND_BASE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;python </span><span class="si">{</span><span class="n">sut_tool</span><span class="p">(</span><span class="s1">&#39;SRC_SCRIPT_PATH_L&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/src/caller.py --os-type LINUX &quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sut</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span> <span class="o">=</span> <span class="n">sut</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acce</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="n">sut</span><span class="p">)</span>
+
+
+
+<div class="viewcode-block" id="KVM.attach_mdev_to_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.attach_mdev_to_vm">[docs]</a>    <span class="k">def</span> <span class="nf">attach_mdev_to_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">mdev_uuid_list</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="s1">&#39;rm -rf xml&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">IMAGE_PATH_L</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="s1">&#39;mkdir xml&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">IMAGE_PATH_L</span><span class="p">)</span>
+        <span class="n">is_vm_running</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_vm_running</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">mdev_uuid</span> <span class="ow">in</span> <span class="n">mdev_uuid_list</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;attach device </span><span class="si">{</span><span class="n">mdev_uuid</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">xml_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_mdev_xml_on_sut</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">mdev_uuid</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh attach-device </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">xml_path</span><span class="si">}</span><span class="s1"> --config&#39;</span>
+            <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">vm_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span><span class="p">[</span><span class="n">vm_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">xml_path</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span><span class="p">[</span><span class="n">vm_name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">xml_path</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="KVM.attach_vf_to_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.attach_vf_to_vm">[docs]</a>    <span class="k">def</span> <span class="nf">attach_vf_to_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">vf_list</span><span class="p">):</span>
+        <span class="n">is_vm_running</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="s1">&#39;rm -rf xml&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">IMAGE_PATH_L</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="s1">&#39;mkdir xml&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">IMAGE_PATH_L</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_vm_running</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vf</span> <span class="ow">in</span> <span class="n">vf_list</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;attach device </span><span class="si">{</span><span class="n">vf</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">xml_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_VF_xml_on_sut</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">vf</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh attach-device </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">xml_path</span><span class="si">}</span><span class="s1"> --config&#39;</span>
+            <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">vm_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span><span class="p">[</span><span class="n">vm_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">xml_path</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attached_device_list</span><span class="p">[</span><span class="n">vm_name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">xml_path</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="nf">check_device_in_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">device_ip</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="n">mdev</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: Check attached device in VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  vm_name: Run command on which VM</span>
+<span class="sd">                  device_ip: Which device need to check; eg: &#39;qat&#39;, &#39;blb&#39;, &#39;dsa&#39;</span>
+<span class="sd">                  vf_num: How many vf attached to VM</span>
+<span class="sd">                  mdev: Is SIOV device</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: Check attached device in VM</span>
+<span class="sd">                      check_device_in_vm(vm_name, &#39;qat&#39;, 16)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">qemu</span><span class="o">.</span><span class="n">execute_vm_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="s1">&#39;lspci&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mdev</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">vf_num</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;qat&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">qat_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;dlb&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">dlb_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;dsa&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">dsa_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;qat&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">check_device_num_in_vm</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">qat_vf_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;dlb&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">check_device_num_in_vm</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">dlb_vf_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;qat&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">qat_mdev_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="KVM.check_device_num_in_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.check_device_num_in_vm">[docs]</a>    <span class="k">def</span> <span class="nf">check_device_num_in_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="n">check_key</span><span class="p">):</span>
+        <span class="n">dev_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">line_list</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">check_key</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">dev_num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">dev_num</span> <span class="o">!=</span> <span class="n">vf_num</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.create_VF_xml_on_sut"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.create_VF_xml_on_sut">[docs]</a>    <span class="k">def</span> <span class="nf">create_VF_xml_on_sut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">vf</span><span class="p">):</span>
+        <span class="n">bus</span> <span class="o">=</span> <span class="s1">&#39;0x&#39;</span> <span class="o">+</span> <span class="n">vf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">slot</span> <span class="o">=</span> <span class="s1">&#39;0x&#39;</span> <span class="o">+</span> <span class="n">vf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">function</span> <span class="o">=</span> <span class="s1">&#39;0x&#39;</span> <span class="o">+</span>  <span class="n">vf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">xml_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;pci_device_</span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">bus</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">slot</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">function</span><span class="si">}</span><span class="s1">.xml&#39;</span>
+        <span class="n">xml_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_pci_xml_content</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">slot</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">xml_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">xml_file</span><span class="p">:</span>
+            <span class="n">xml_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xml_content</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">upload_to_remote</span><span class="p">(</span><span class="n">localpath</span><span class="o">=</span><span class="n">xml_filename</span><span class="p">,</span> <span class="n">remotepath</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sut_tool</span><span class="p">(</span><span class="s1">&#39;IMAGE_PATH_L&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/xml&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">xml_filename</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sut_tool</span><span class="p">(</span><span class="s1">&#39;IMAGE_PATH_L&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/xml/</span><span class="si">{</span><span class="n">xml_filename</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+<div class="viewcode-block" id="KVM.create_mdev_xml_on_sut"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.create_mdev_xml_on_sut">[docs]</a>    <span class="k">def</span> <span class="nf">create_mdev_xml_on_sut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">mdev_uuid</span><span class="p">):</span>
+        <span class="n">xml_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;pci_device_</span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">mdev_uuid</span><span class="si">}</span><span class="s1">.xml&#39;</span>
+        <span class="n">xml_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_mdev_xml_content</span><span class="p">(</span><span class="n">mdev_uuid</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">xml_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">xml_file</span><span class="p">:</span>
+            <span class="n">xml_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xml_content</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">upload_to_remote</span><span class="p">(</span><span class="n">localpath</span><span class="o">=</span><span class="n">xml_filename</span><span class="p">,</span> <span class="n">remotepath</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sut_tool</span><span class="p">(</span><span class="s1">&#39;IMAGE_PATH_L&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/xml&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">xml_filename</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sut_tool</span><span class="p">(</span><span class="s1">&#39;IMAGE_PATH_L&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/xml/</span><span class="si">{</span><span class="n">xml_filename</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+<div class="viewcode-block" id="KVM.create_vm_from_template"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.create_vm_from_template">[docs]</a>    <span class="k">def</span> <span class="nf">create_vm_from_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">IMAGE_PATH_L</span><span class="si">}{</span><span class="n">CLEAN_IMAGE_NAME</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ram_mb</span><span class="o">=</span><span class="mi">16384</span><span class="p">,</span> <span class="n">cpu_num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">disk_dir</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">IMAGE_PATH_L</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">vnic_type</span><span class="o">=</span><span class="s1">&#39;virtio&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reference:</span>
+<span class="sd">            None</span>
+<span class="sd">        Purpose: to create a new VM from template</span>
+<span class="sd">        Args:</span>
+<span class="sd">            vm_name: the name of new VM</span>
+<span class="sd">            template: the path of template file</span>
+<span class="sd">            ram_mb: the memory going to be assigned to VM, in MB</span>
+<span class="sd">            cpu_num: the cpu going to be assigned to VM</span>
+<span class="sd">            disk_dir: the directory that the virtual disk file of new VM going to be placed</span>
+<span class="sd">            vnic_type: the virtual NIC type, virtio or e1000</span>
+<span class="sd">            timeout: it will raise exception after timeout</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            RuntimeError: If any errors</span>
+<span class="sd">        Example:</span>
+<span class="sd">            Create a new VM named &#39;RHEL-NEW&#39; from template &#39;/hoem/imgs/RHEL0.qcow2&#39;, assign 2048MB memory to it</span>
+<span class="sd">            and put the virtual disk size to &#39;/root/imgs&#39;</span>
+<span class="sd">                create_vm_from_template(&#39;RHEL-NEW&#39;, &#39;/home/imgs/RHEL0.qcow2&#39;, 2048, &#39;/root/imgs&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_exist</span><span class="p">(</span><span class="n">vm_name</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_exist</span><span class="p">(</span><span class="n">vm_name</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">undefine_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;create new virtual machine from template&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Name: </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Template Path: </span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Memory: </span><span class="si">{</span><span class="n">ram_mb</span><span class="si">}</span><span class="s2">MB&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Diks Storage directory: </span><span class="si">{</span><span class="n">disk_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">copy_template_to_disk</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">disk_dir</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CALLER_COMMAND_BASE</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;--command create_vm_from_template &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--new-vm-name </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--template </span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--memory </span><span class="si">{</span><span class="n">ram_mb</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--disk-dir </span><span class="si">{</span><span class="n">disk_dir</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vnic-type </span><span class="si">{</span><span class="n">vnic_type</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--timeout </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s1">&#39;</span>
+
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="o">=</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="n">timeout</span> <span class="o">+</span> <span class="mi">60</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;virsh setvcpus </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> --maximum </span><span class="si">{</span><span class="n">cpu_num</span><span class="si">}</span><span class="s1"> --config&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;virsh setvcpus </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> --count </span><span class="si">{</span><span class="n">cpu_num</span><span class="si">}</span><span class="s1"> --config&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;create </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s2"> succeed&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.copy_template_to_disk"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.copy_template_to_disk">[docs]</a>    <span class="k">def</span> <span class="nf">copy_template_to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">disk_dir</span><span class="p">):</span>
+        <span class="n">disk_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">disk_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">.qcow2&#39;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cp </span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">disk_path</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;copying </span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">disk_path</span><span class="si">}</span><span class="s1">, wait a while please...</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.create_disk_file"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.create_disk_file">[docs]</a>    <span class="k">def</span> <span class="nf">create_disk_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">disk_path</span><span class="p">,</span> <span class="n">disk_size_gb</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reference:</span>
+<span class="sd">            None</span>
+<span class="sd">        Purpose: to create a new virtual disk file</span>
+<span class="sd">        Args:</span>
+<span class="sd">            disk_path: the file path (contains name) of virtual disk</span>
+<span class="sd">            disk_size_gb: the file size of virtual disk</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            RuntimeError: If any errors</span>
+<span class="sd">        Example:</span>
+<span class="sd">            Create a new virtual disk file at &#39;/home&#39; which name is &#39;temp.qcow2&#39; and size is 10GB</span>
+<span class="sd">                create_disk_file(&#39;/home/temp.qcow2&#39;, 10)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;create new disk file </span><span class="si">{</span><span class="n">disk_path</span><span class="si">}</span><span class="s1"> size=</span><span class="si">{</span><span class="n">disk_size_gb</span><span class="si">}</span><span class="s1">GB&#39;</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;qemu-img create -f qcow2 &#39;</span> \
+              <span class="sa">f</span><span class="s1">&#39;-o size=</span><span class="si">{</span><span class="n">disk_size_gb</span><span class="si">}</span><span class="s1">G </span><span class="si">{</span><span class="n">disk_path</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="o">=</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.check_device_in_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.check_device_in_vm">[docs]</a>    <span class="k">def</span> <span class="nf">check_device_in_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="n">check_key</span><span class="p">):</span>
+        <span class="n">dev_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">line_list</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">check_key</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">dev_num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">dev_num</span> <span class="o">!=</span> <span class="n">vf_num</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.check_error"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.check_error">[docs]</a>    <span class="k">def</span> <span class="nf">check_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.execute_cmd"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.execute_cmd">[docs]</a>    <span class="k">def</span> <span class="nf">execute_cmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">vm_cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/root&#39;</span><span class="p">,</span> <span class="n">is_async</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">vm_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cd </span><span class="si">{</span><span class="n">cwd</span><span class="si">}</span><span class="s1"> &amp;&amp; </span><span class="si">{</span><span class="n">vm_cmd</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python /home/BKCPkg/domains/virtualization/auto-poc/src/caller.py --os-type LINUX &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;--command execute_vm_cmd &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-name </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--timeout </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-command &quot;</span><span class="si">{</span><span class="n">vm_cmd</span><span class="si">}</span><span class="s1">&quot; &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--ssh-port 22 &#39;</span>
+        <span class="k">if</span> <span class="n">is_async</span><span class="p">:</span>
+            <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd_async</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="n">timeout</span><span class="o">+</span><span class="mi">60</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="n">timeout</span><span class="o">+</span><span class="mi">60</span><span class="p">))</span>
+        <span class="n">out_line_list</span> <span class="o">=</span> <span class="n">std_out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">std_out</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_line_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">return</span> <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span></div>
+
+<div class="viewcode-block" id="KVM.execute_vm_cmd"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.execute_vm_cmd">[docs]</a>    <span class="k">def</span> <span class="nf">execute_vm_cmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/root&#39;</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[[vm_name]]&quot;</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;</span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&gt; execute command [</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.execute_vm_cmd_async"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.execute_vm_cmd_async">[docs]</a>    <span class="k">def</span> <span class="nf">execute_vm_cmd_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/root&#39;</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[[vm_name]]&quot;</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;</span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&gt; execute command [</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">,</span> <span class="n">is_async</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.get_pci_xml_content"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_pci_xml_content">[docs]</a>    <span class="k">def</span> <span class="nf">get_pci_xml_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bus</span><span class="p">,</span> <span class="n">slot</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;&lt;hostdev mode=&quot;subsystem&quot; type=&quot;pci&quot; managed=&quot;yes&quot;&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;    &lt;driver name=&quot;vfio&quot;/&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;    &lt;source&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;        &lt;address domain=&quot;0x0000&quot; bus=&quot;</span><span class="si">{</span><span class="n">bus</span><span class="si">}</span><span class="s1">&quot; slot=&quot;</span><span class="si">{</span><span class="n">slot</span><span class="si">}</span><span class="s1">&quot; function=&quot;</span><span class="si">{</span><span class="n">function</span><span class="si">}</span><span class="s1">&quot;/&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;    &lt;/source&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/hostdev&gt;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">content</span></div>
+
+
+
+<div class="viewcode-block" id="KVM.get_mdev_xml_content"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_mdev_xml_content">[docs]</a>    <span class="k">def</span> <span class="nf">get_mdev_xml_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdev_uuid</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;&lt;hostdev mode=&quot;subsystem&quot; type=&quot;mdev&quot; managed=&quot;no&quot; model=&quot;vfio-pci&quot; display=&quot;off&quot;&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;    &lt;source&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;        &lt;address uuid=&quot;</span><span class="si">{</span><span class="n">mdev_uuid</span><span class="si">}</span><span class="s1">&quot;/&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;    &lt;/source&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/hostdev&gt;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">content</span></div>
+
+
+
+<div class="viewcode-block" id="KVM.get_vm_external_ip"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_vm_external_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_vm_external_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">vm_cmd</span> <span class="o">=</span> <span class="s2">&quot;ifconfig | grep </span><span class="se">\&quot;</span><span class="s2">inet 10.</span><span class="se">\&quot;</span><span class="s2"> | grep -v i</span><span class="se">\&quot;</span><span class="s2">10.0</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_vm_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">vm_cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">std_out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;error: cannot find external IP from </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">std_out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="KVM.get_vm_ip_list"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_vm_ip_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_vm_ip_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;virsh domifaddr </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2"> | sed -n &#39;3,10p&#39; | awk &#39;</span><span class="se">{{</span><span class="s2">print $4</span><span class="se">}}</span><span class="s2">&#39;&quot;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="n">ip_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ip_lines</span> <span class="o">=</span> <span class="n">std_out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ip_lines</span><span class="p">:</span>
+            <span class="n">ip_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">ip_list</span></div>
+
+<div class="viewcode-block" id="KVM.get_vm_list"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_vm_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_vm_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;get the virtual machine list&#39;</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;virsh list --all --name&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">std_out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.get_vm_memory"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_vm_memory">[docs]</a>    <span class="k">def</span> <span class="nf">get_vm_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;get </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">s memory&#39;</span><span class="p">)</span>
+        <span class="n">memory_string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_vm_info</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)[</span><span class="n">VM_INFO</span><span class="o">.</span><span class="n">MAX_MEMORY</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">memory_string</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.is_upload_src_path_exist"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.is_upload_src_path_exist">[docs]</a>    <span class="k">def</span> <span class="nf">is_upload_src_path_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;linux&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">CALLER_COMMAND_BASE</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;ls -l </span><span class="si">{</span><span class="n">src_path</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">err_keyword</span> <span class="o">=</span> <span class="s1">&#39;no such file or directory&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;dir </span><span class="si">{</span><span class="n">src_path</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">err_keyword</span> <span class="o">=</span> <span class="s1">&#39;File Not Found&#39;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">err_keyword</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">std_err</span></div>
+
+
+<div class="viewcode-block" id="KVM.is_vm_autostart"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.is_vm_autostart">[docs]</a>    <span class="k">def</span> <span class="nf">is_vm_autostart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;check if </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> start with Hypervisor&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_vm_info</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)[</span><span class="n">VM_INFO</span><span class="o">.</span><span class="n">IS_AUTOSTART</span><span class="p">]</span> <span class="o">==</span> <span class="n">VM_INFO</span><span class="o">.</span><span class="n">ENABLE_AUTOSTART</span></div>
+
+<div class="viewcode-block" id="KVM.is_vm_exist"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.is_vm_exist">[docs]</a>    <span class="k">def</span> <span class="nf">is_vm_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh list --all | grep </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">std_err</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vm_name</span> <span class="ow">in</span> <span class="n">std_out</span></div>
+
+<div class="viewcode-block" id="KVM.is_vm_running"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.is_vm_running">[docs]</a>    <span class="k">def</span> <span class="nf">is_vm_running</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh list --name | grep </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">std_err</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vm_name</span> <span class="ow">in</span> <span class="n">std_out</span></div>
+
+
+
+<div class="viewcode-block" id="KVM.get_from_sut"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.get_from_sut">[docs]</a>    <span class="k">def</span> <span class="nf">get_from_sut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">sut_path</span><span class="p">,</span> <span class="n">vm_path</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python /home/BKCPkg/domains/virtualization/auto-poc/src/caller.py --os-type LINUX &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;--command upload_to_vm &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-name </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--src-path </span><span class="si">{</span><span class="n">sut_path</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--dest-path </span><span class="si">{</span><span class="n">vm_path</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--ssh-port 22&#39;</span>
+
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">6000</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KVM.ping_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.ping_vm">[docs]</a>    <span class="k">def</span> <span class="nf">ping_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_ip</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;ping -c </span><span class="si">{</span><span class="n">times</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">vm_ip</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;100% packet loss&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">std_out</span></div>
+
+<div class="viewcode-block" id="KVM.put_to_sut"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.put_to_sut">[docs]</a>    <span class="k">def</span> <span class="nf">put_to_sut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">sut_path</span><span class="p">,</span> <span class="n">vm_path</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python /home/BKCPkg/domains/virtualization/auto-poc/src/caller.py --os-type LINUX &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;--command download_from_vm &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-name </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--src-path </span><span class="si">{</span><span class="n">vm_path</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--dest-path </span><span class="si">{</span><span class="n">sut_path</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--ssh-port 22&#39;</span>
+
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">6000</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KVM.set_vm_autostart"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.set_vm_autostart">[docs]</a>    <span class="k">def</span> <span class="nf">set_vm_autostart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;set </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> start with KVM&#39;</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh autostart </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.set_vm_memory"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.set_vm_memory">[docs]</a>    <span class="k">def</span> <span class="nf">set_vm_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">ram_mb</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;set </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">s max memory to </span><span class="si">{</span><span class="n">ram_mb</span><span class="si">}</span><span class="s1">MB&#39;</span><span class="p">)</span>
+
+        <span class="n">old_vm_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_vm_state</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh setmaxmem </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">ram_mb</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="si">}</span><span class="s1"> --config&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">old_vm_state</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.set_vm_unautostart"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.set_vm_unautostart">[docs]</a>    <span class="k">def</span> <span class="nf">set_vm_unautostart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;set </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> not start with Hypervisor&#39;</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh autostart --disable </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.shutdown_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.shutdown_vm">[docs]</a>    <span class="k">def</span> <span class="nf">shutdown_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;try to shutdown </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh shutdown </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="n">remain_time</span> <span class="o">=</span> <span class="n">timeout</span>
+        <span class="k">while</span> <span class="n">remain_time</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;waiting for </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> shut off...&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+            <span class="n">remain_time</span> <span class="o">-=</span> <span class="mi">30</span>
+        <span class="k">if</span> <span class="n">remain_time</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;error: cannot shutdown </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s1">s, try longer timeout please&#39;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;shutdown </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> succeed&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KVM.start_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.start_vm">[docs]</a>    <span class="k">def</span> <span class="nf">start_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">420</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reference:</span>
+<span class="sd">            None</span>
+<span class="sd">        Purpose: to start the VM</span>
+<span class="sd">        Args:</span>
+<span class="sd">            vm_name: the name of VM</span>
+<span class="sd">            timeout: stop trying start the VM after timeout</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            RuntimeError: If any errors</span>
+<span class="sd">        Example:</span>
+<span class="sd">            Start VM &#39;RHEL1&#39; in 600s</span>
+<span class="sd">                start_vm(&#39;RHEL1&#39;, 600)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start the virtual machine </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start virtual machine failed: </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> is already started&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CALLER_COMMAND_BASE</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;--command start_vm &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-name </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--timeout </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s1">&#39;</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;starting </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
+        <span class="n">clock_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="o">=</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="n">timeout</span> <span class="o">+</span> <span class="mi">60</span><span class="p">))</span>
+        <span class="n">clock_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="s2">&quot;could not initialize&quot;</span> <span class="ow">in</span> <span class="n">std_err</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="n">remain_time</span> <span class="o">=</span> <span class="n">timeout</span> <span class="o">-</span> <span class="p">(</span><span class="n">clock_end</span> <span class="o">-</span> <span class="n">clock_start</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">remain_time</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__check_is_vm_in_os_by_log</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Waitting for </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2"> boot into os...&quot;</span><span class="p">)</span>
+            <span class="n">remain_time</span> <span class="o">-=</span> <span class="mi">10</span>
+
+        <span class="k">if</span> <span class="n">remain_time</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;error: cannot start </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2"> with timeout </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">s, try logger timeout please&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> succeed&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KVM.undefine_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.KVM.undefine_vm">[docs]</a>    <span class="k">def</span> <span class="nf">undefine_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;undefine </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_vm_running</span><span class="p">(</span><span class="n">vm_name</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh undefine </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> --remove-all-storage&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__get_vm_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;get </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> information dict&#39;</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;virsh dominfo </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">std_err</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">std_out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">info</span>
+
+    <span class="k">def</span> <span class="nf">__execute_vm_cmd_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exec_res</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">):</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_vm_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">)</span>
+        <span class="n">exec_res</span><span class="p">[</span><span class="n">vm_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__check_is_vm_in_os_by_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">pre_log</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__execute_vm_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="s2">&quot;journalctl -n 1 --no-pager&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">std_err</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ignored execute command error in </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">std_err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">cur_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__execute_vm_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="s2">&quot;journalctl -n 1 --no-pager&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;Startup finished&quot;</span> <span class="ow">in</span> <span class="n">cur_log</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;VM log satisfied&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">pre_log</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">cur_log</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;VM log satisfied&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ignore timeout error for check if </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s2"> has been boot to os&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">__execute_vm_cmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">vm_cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CALLER_COMMAND_BASE</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;--command execute_vm_cmd &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-name </span><span class="si">{</span><span class="n">vm_name</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--timeout </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--vm-command </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">vm_cmd</span><span class="si">}</span><span class="se">\&quot;</span><span class="s1"> &#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;--ssh-port 22&#39;</span>
+
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">execute_shell_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="n">timeout</span> <span class="o">+</span> <span class="mi">60</span><span class="p">))</span>
+        <span class="n">std_out</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">std_out</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">return</span> <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span></div>
+
+
+
+<div class="viewcode-block" id="Rich_KVM"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM">[docs]</a><span class="k">class</span> <span class="nc">Rich_KVM</span><span class="p">(</span><span class="n">KVM</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sut</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">sut</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vm_group_prefix</span> <span class="o">=</span> <span class="s1">&#39;rich_vm_&#39;</span>
+
+
+<div class="viewcode-block" id="Rich_KVM.attach_acce_dev_to_vm_grouply"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.attach_acce_dev_to_vm_grouply">[docs]</a>    <span class="k">def</span> <span class="nf">attach_acce_dev_to_vm_grouply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dev_list</span><span class="p">,</span> <span class="n">dev_num_per_vm</span><span class="p">,</span> <span class="n">BDF</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;attach </span><span class="si">{</span><span class="n">dev_num_per_vm</span><span class="si">}</span><span class="s1"> accelerator devices to every virtual machine&#39;</span><span class="p">)</span>
+        <span class="n">cur_dev_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">BDF</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attach_vf_to_vm</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="n">dev_list</span><span class="p">[</span><span class="n">cur_dev_index</span><span class="p">:</span> <span class="n">cur_dev_index</span> <span class="o">+</span> <span class="n">dev_num_per_vm</span><span class="p">])</span>
+                <span class="n">cur_dev_index</span> <span class="o">+=</span> <span class="n">dev_num_per_vm</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attach_mdev_to_vm</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="n">dev_list</span><span class="p">[</span><span class="n">cur_dev_index</span><span class="p">:</span> <span class="n">cur_dev_index</span> <span class="o">+</span> <span class="n">dev_num_per_vm</span><span class="p">])</span>
+                <span class="n">cur_dev_index</span> <span class="o">+=</span> <span class="n">dev_num_per_vm</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.add_environment_to_file_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.add_environment_to_file_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_key</span><span class="p">,</span> <span class="n">add_command</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: to check all keys in VM /root/.bashrc file, if not add environments variable to /root/.bashrc file</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  qemu: Call VM Class RichHypervisor</span>
+<span class="sd">                  vm_name: Run command on which VM</span>
+<span class="sd">                  check_key: the name of environments variable</span>
+<span class="sd">                  add_command: add environments variable to VM /root/.bashrc file</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: Add key &#39;end&#39; to /root/.bashrc file</span>
+<span class="sd">                        add_environment_to_file_rich_vm(qemu, &#39;end&#39;, &#39;end=$((SECONDS+110))&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;cat /root/.bashrc&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">check_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">execute_vm_cmd</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;echo &#39;</span><span class="si">{</span><span class="n">add_command</span><span class="si">}</span><span class="s2">&#39; &gt;&gt; /root/.bashrc&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">execute_vm_cmd</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="s1">&#39;source /root/.bashrc&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Rich_KVM.create_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.create_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">create_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_num</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">IMAGE_PATH_L</span><span class="si">}{</span><span class="n">CLEAN_IMAGE_NAME</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ram_mb</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">cpu_num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                       <span class="n">disk_dir</span><span class="o">=</span><span class="n">sut_tool</span><span class="p">(</span><span class="s1">&#39;IMAGE_PATH_L&#39;</span><span class="p">),</span> <span class="n">vnic_type</span><span class="o">=</span><span class="s1">&#39;virtio&#39;</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;create </span><span class="si">{</span><span class="n">vm_num</span><span class="si">}</span><span class="s1"> virtual machine from </span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vm_num</span><span class="p">):</span>
+            <span class="n">vm_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_group_prefix</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">create_vm_from_template</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">ram_mb</span><span class="p">,</span> <span class="n">cpu_num</span><span class="p">,</span> <span class="n">disk_dir</span><span class="p">,</span> <span class="n">vnic_type</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.check_device_in_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.check_device_in_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">check_device_in_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_ip</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="n">mdev</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: Check attached device in VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  device_ip: Which device need to check; eg: &#39;qat&#39;, &#39;blb&#39;, &#39;dsa&#39;</span>
+<span class="sd">                  vf_num: How many vf attached to VM</span>
+<span class="sd">                  mdev: Is SIOV device</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: Check attached device in VM</span>
+<span class="sd">                      check_device_in_rich_vm(&#39;qat&#39;, 16)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start check devices in every virtual machine&#39;</span><span class="p">)</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;lspci&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">mdev</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">vf_num</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;qat&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">qat_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span>
+                                                <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;dlb&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">dlb_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span>
+                                                <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;dsa&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">dsa_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span>
+                                                <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;qat&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">check_device_num_in_vm</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">qat_vf_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;dlb&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">check_device_num_in_vm</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">vf_num</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">dlb_vf_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">device_ip</span> <span class="o">==</span> <span class="s1">&#39;qat&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Intel Corporation Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">qat_mdev_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span>
+                                            <span class="s2">&quot;Can&#39;t detact attached device&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;check devices in every virtual machine successfully&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.dlb_install_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.dlb_install_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">dlb_install_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch_makefile</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: To install DLB driver in VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  ch_makefile: if need to modify DLB make file</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: Modify Makefile and install DLB driver</span>
+<span class="sd">                      dlb_install_rich_vm(True)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start dlb driver in every virtual machine&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mkdir -p </span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rm -rf </span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">*&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">sut_file_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}{</span><span class="n">DLB_DRIVER_NAME</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">vm_file_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}{</span><span class="n">DLB_DRIVER_NAME</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_to_rich_vm</span><span class="p">(</span><span class="n">sut_file_dir</span><span class="p">,</span> <span class="n">vm_file_dir</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;copy dlb driver to every virtual machine successfully&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unzip -o </span><span class="si">{</span><span class="n">DLB_DRIVER_NAME</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">DLB_DRIVER_PATH_L</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unzip dlb driver in every virtual machine successfully&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ch_makefile</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span>
+                <span class="s2">&quot;sed -i &#39;s/ccflags-y += -DCONFIG_INTEL_DLB2_SIOV/#  iccflags-y += -DCONFIG_INTEL_DLB2_SIOV/g&#39; /home/BKCPkg/domains/accelerator/dlb/driver/dlb2/Makefile&quot;</span><span class="p">,</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;make&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">driver/dlb2/&#39;</span><span class="p">)</span>
+        <span class="c1"># self.__check_error(err)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;install dlb driver in every virtual machine successfully&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;rmmod dlb2&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">driver/dlb2/&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;insmod ./dlb2.ko&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">driver/dlb2/&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;insmod dlb driver in every virtual machine successfully&#39;</span><span class="p">)</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;lsmod | grep dlb2&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="s1">&#39;dlb2&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;Issue - dlb driver install fail&#39;</span><span class="p">)</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;make&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">libdlb/&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="s1">&#39;LD_LIBRARY_PATH&#39;</span><span class="p">,</span>
+                                             <span class="s1">&#39;export LD_LIBRARY_PATH=/home/BKCPkg/domains/accelerator/dlb/libdlb:$LD_LIBRARY_PATH&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;dlb driver show in every virtual machine correct&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.download_from_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.download_from_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">download_from_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">remote_path</span><span class="p">):</span>
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_list</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;download file from virtual machine </span><span class="si">{</span><span class="n">vm</span><span class="si">}</span><span class="s1">  to &lt;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sut</span><span class="o">.</span><span class="n">sut_name</span><span class="si">}</span><span class="s1">&gt;:</span><span class="si">{</span><span class="n">local_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">put_to_sut</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">remote_path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.execute_rich_vm_cmd_parallel"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.execute_rich_vm_cmd_parallel">[docs]</a>    <span class="k">def</span> <span class="nf">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/root&#39;</span><span class="p">,</span> <span class="n">start_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">start_index</span> <span class="k">else</span> <span class="n">start_index</span>
+        <span class="n">end_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">end_index</span> <span class="k">else</span> <span class="n">end_index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;execute command [</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">] in virtual machine </span><span class="si">{</span><span class="n">start_index</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_index</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span>
+        <span class="n">th_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The virtual machine going to execute `</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">`: </span><span class="si">{</span><span class="n">vm_list</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vm_list</span><span class="p">)):</span>
+            <span class="n">th</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__execute_vm_cmd_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">exec_res</span><span class="p">,</span> <span class="n">vm_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">])</span>
+            <span class="n">th_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
+            <span class="n">th</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">th_list</span><span class="p">:</span>
+            <span class="n">th</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">exec_res</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.execute_rich_vm_cmd_parallel_async"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.execute_rich_vm_cmd_parallel_async">[docs]</a>    <span class="k">def</span> <span class="nf">execute_rich_vm_cmd_parallel_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/root&#39;</span><span class="p">,</span> <span class="n">start_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># only for Linux virtual machine</span>
+        <span class="c1"># cmd += &quot; &amp;&quot;</span>
+        <span class="c1"># return self.execute_rich_vm_cmd_parallel(cmd, timeout, cwd, start_index, end_index)</span>
+        <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">start_index</span> <span class="k">else</span> <span class="n">start_index</span>
+        <span class="n">end_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">end_index</span> <span class="k">else</span> <span class="n">end_index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;execute async command [</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">] in virtual machine </span><span class="si">{</span><span class="n">start_index</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_index</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">)</span>
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="n">vm_list</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="p">]</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The virtual machine going to execute async`</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">`: </span><span class="si">{</span><span class="n">vm_list</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_list</span><span class="p">:</span>
+            <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_vm_cmd_async</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">exec_res</span></div>
+
+
+<div class="viewcode-block" id="Rich_KVM.kernel_header_devel_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.kernel_header_devel_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">kernel_header_devel_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: Install kernel-header and kernel-devel package in VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  qemu: Call VM Class RichHypervisor</span>
+<span class="sd">                  vm_name: Run command on which VM</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: Install kernel-header and kernel-devel package in VM</span>
+<span class="sd">                      kernel_header_devel_rich_vm(qemu)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start install kernel_devel to every virtual machine&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mkdir -p </span><span class="si">{</span><span class="n">KERNEL_HEADER_PATH_L</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rm -rf </span><span class="si">{</span><span class="n">KERNEL_HEADER_PATH_L</span><span class="si">}</span><span class="s1">*&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">sut_file_dir1</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">KERNEL_DEVEL_PATH_L</span><span class="si">}{</span><span class="n">KERNEL_DEVEL_NAME</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">vm_file_dir1</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">KERNEL_DEVEL_PATH_L</span><span class="si">}{</span><span class="n">KERNEL_DEVEL_NAME</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_to_rich_vm</span><span class="p">(</span><span class="n">sut_file_dir1</span><span class="p">,</span> <span class="n">vm_file_dir1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;rpm -ivh *.rpm --force --nodeps&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">KERNEL_DEVEL_PATH_L</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.qat_install_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.qat_install_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">qat_install_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">execute_command</span><span class="o">=</span><span class="s1">&#39;./configure &#39;</span><span class="p">,</span> <span class="n">enable_sriov</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: To install QAT driver in VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  execute_command : qat configuration flag</span>
+<span class="sd">                  enable_sriov: If enable sriov host function in VM</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: install QAT driver in VM</span>
+<span class="sd">                      qat_install_rich_vm(qemu, False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start install qat driver in every virtual machine&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mkdir -p </span><span class="si">{</span><span class="n">QAT_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rm -rf </span><span class="si">{</span><span class="n">QAT_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">*&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">sut_file_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">QAT_DRIVER_PATH_L</span><span class="si">}{</span><span class="n">QAT_DRIVER_NAME</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">vm_file_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">QAT_DRIVER_PATH_L</span><span class="si">}{</span><span class="n">QAT_DRIVER_NAME</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_to_rich_vm</span><span class="p">(</span><span class="n">sut_file_dir</span><span class="p">,</span> <span class="n">vm_file_dir</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;copy qat driver to every virtual machine successfully&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unzip </span><span class="si">{</span><span class="n">QAT_DRIVER_NAME</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">QAT_DRIVER_PATH_L</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;tar -zxvf *.tar.gz&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">QAT_DRIVER_PATH_L</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qat driver successfully unzip in every virtual machine &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">enable_sriov</span><span class="p">:</span>
+            <span class="n">execute_command</span> <span class="o">=</span> <span class="n">execute_command</span> <span class="o">+</span> <span class="s1">&#39; --enable-icp-sriov=guest&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="n">execute_command</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">QAT_DRIVER_PATH_L</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;make install&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">QAT_DRIVER_PATH_L</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;make samples-install&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">QAT_DRIVER_PATH_L</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qat driver install successfully in every virtual machine&#39;</span><span class="p">)</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;lsmod | grep qat&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">enable_sriov</span><span class="p">:</span>
+                <span class="n">key_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;qat_vqat&#39;</span><span class="p">,</span> <span class="s1">&#39;intel_qat&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">(</span><span class="n">key_list</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;Issue - QAT driver install failed&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">key_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;qat_4xxx&#39;</span><span class="p">,</span> <span class="s1">&#39;intel_qat&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">(</span><span class="n">key_list</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;Issue - QAT driver install failed&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qat driver show successfully in every virtual machine&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.rpm_install_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.rpm_install_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">rpm_install_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: To install rpm packages in VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  qemu: Call VM Class RichHypervisor</span>
+<span class="sd">                  vm_name: Run command on which VM</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: Install rpm packages in VM</span>
+<span class="sd">                      rpm_install_rich_vm(qemu)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start yum install packages to every virtual machine&#39;</span><span class="p">)</span>
+        <span class="n">rpm_list</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;zlib-devel.x86_64 yasm systemd-devel boost-devel.x86_64 openssl-devel libnl3-devel gcc gcc-c++ libgudev.x86_64 libgudev-devel.x86_64 systemd* abrt-cli boost-devel.x86_64&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="s1">&#39;http_proxy&#39;</span><span class="p">,</span> <span class="s1">&#39;export http_proxy=http://proxy-iind.intel.com:911&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="s1">&#39;HTTP_PROXY&#39;</span><span class="p">,</span> <span class="s1">&#39;export HTTP_PROXY=http://proxy-iind.intel.com:911&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="s1">&#39;https_proxy&#39;</span><span class="p">,</span> <span class="s1">&#39;export https_proxy=http://proxy-iind.intel.com:911&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="s1">&#39;HTTPS_PROXY&#39;</span><span class="p">,</span> <span class="s1">&#39;export HTTPS_PROXY=http://proxy-iind.intel.com:911&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_environment_to_file_rich_vm</span><span class="p">(</span><span class="s1">&#39;no_proxy&#39;</span><span class="p">,</span> <span class="s2">&quot;export no_proxy=&#39;localhost,127.0.0.1,intel.com,.intel.com&#39;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">rpm</span> <span class="ow">in</span> <span class="n">rpm_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;yum -y install </span><span class="si">{</span><span class="n">rpm</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60000</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;yum install packages to every virtual machine successfully&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;yum -y install make&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60000</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;yum -y install patch&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60000</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Rich_KVM.run_qat_sample_code_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.run_qat_sample_code_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">run_qat_sample_code_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qat_cpa_param</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Purpose: Run QAT cap_sample stress on VM</span>
+<span class="sd">              Args:</span>
+<span class="sd">                  qat_cpa_param: Which cap_sample stress need to run</span>
+<span class="sd">              Returns:</span>
+<span class="sd">                  No</span>
+<span class="sd">              Raises:</span>
+<span class="sd">                  RuntimeError: If any errors</span>
+<span class="sd">              Example:</span>
+<span class="sd">                  Simplest usage: run cap_sample stress</span>
+<span class="sd">                        run_qat_sample_code_rich_vm()</span>
+<span class="sd">                        run_qat_sample_code_rich_vm(&#39;signOfLife=1&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start run qat stress in every virtual machine&#39;</span><span class="p">)</span>
+        <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="s1">&#39;./cpa_sample_code &#39;</span> <span class="o">+</span> <span class="n">qat_cpa_param</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">QAT_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">/build/&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="s1">&#39;Sample code completed successfully&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;Issue - Run qat stress fail&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;run qat stress in every virtual machine successfully&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.run_dlb_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.run_dlb_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">run_dlb_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">ldb</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ldb</span><span class="p">:</span>
+            <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./ldb_traffic -n </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+                                                         <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">libdlb/examples&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Received </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1"> events&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;execute dlb stress fail&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_rich_vm_cmd_parallel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./dir_traffic -n </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+                                                        <span class="n">cwd</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DLB_DRIVER_PATH_L</span><span class="si">}</span><span class="s1">libdlb/examples&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">exec_res</span><span class="p">[</span><span class="n">vm</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acce</span><span class="o">.</span><span class="n">check_keyword</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Received </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1"> events&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;execute dlb stress fail&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.shutdown_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.shutdown_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">shutdown_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">start_index</span> <span class="k">else</span> <span class="n">start_index</span>
+        <span class="n">end_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">end_index</span> <span class="k">else</span> <span class="n">end_index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;shutdown virtual machine </span><span class="si">{</span><span class="n">start_index</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_index</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_list</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_vm</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;shutdown virtual machine </span><span class="si">{</span><span class="n">start_index</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_index</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1"> successfully&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.start_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.start_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">start_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">start_index</span> <span class="k">else</span> <span class="n">start_index</span>
+        <span class="n">end_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">end_index</span> <span class="k">else</span> <span class="n">end_index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;start virtual machine </span><span class="si">{</span><span class="n">start_index</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_index</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_list</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;starting virtual machine </span><span class="si">{</span><span class="n">vm</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_vm</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;start virtual machine </span><span class="si">{</span><span class="n">vm</span><span class="si">}</span><span class="s2"> successfully&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.undefine_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.undefine_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">undefine_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;undefine all virtual machine&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">vm_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">undefine_vm</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;undefine all virtual machine successfully&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rich_KVM.upload_to_rich_vm"><a class="viewcode-back" href="../../lib.html#lib.rich_virtual_virsh.Rich_KVM.upload_to_rich_vm">[docs]</a>    <span class="k">def</span> <span class="nf">upload_to_rich_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">remote_path</span><span class="p">):</span>
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm_list</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_from_sut</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">remote_path</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__execute_vm_cmd_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exec_res</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">):</span>
+        <span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_vm_cmd</span><span class="p">(</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">cwd</span><span class="p">)</span>
+        <span class="n">exec_res</span><span class="p">[</span><span class="n">vm_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">rcode</span><span class="p">,</span> <span class="n">std_out</span><span class="p">,</span> <span class="n">std_err</span><span class="p">]</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Fang
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>
